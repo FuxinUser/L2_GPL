@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7270E805-24D2-43BE-839B-CEF5DD2D22A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DBService</RootNamespace>
+    <AssemblyName>DBService</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.Contrib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.Contrib.2.0.35\lib\net461\Dapper.Contrib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Z.Dapper.Plus, Version=3.0.0.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.Dapper.Plus.3.0.0\lib\net45\Z.Dapper.Plus.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AggregationModel\CoilRejectReultModel.cs" />
+    <Compile Include="Base\BaseRepository.cs" />
+    <Compile Include="Base\BaseRepositoryModel.cs" />
+    <Compile Include="Base\DBAttributes.cs" />
+    <Compile Include="Base\IRepositoryModel.cs" />
+    <Compile Include="DBColumnDef.cs" />
+    <Compile Include="DB\SqlGen\DapperSqlGen.cs" />
+    <Compile Include="DB\IDapperMethod.cs" />
+    <Compile Include="DB\IDBContext.cs" />
+    <Compile Include="DB\SqlGen\SqlGenHelp.cs" />
+    <Compile Include="DB\SqlGen\ISqlGenStrategy.cs" />
+    <Compile Include="L1Repository\L1202HisMsgRepo.cs" />
+    <Compile Include="L1Repository\L1203HisMsgRepo.cs" />
+    <Compile Include="L1Repository\L1204HisMsgRepo.cs" />
+    <Compile Include="L1Repository\L1205HisMsgRepo.cs" />
+    <Compile Include="L1Repository\L1206HisMsgRepo.cs" />
+    <Compile Include="L1Repository\L1207HisMsgRepo.cs" />
+    <Compile Include="L1Repository\L1208HisMsgRepo.cs" />
+    <Compile Include="L1Repository\L1209HisMsgRepo.cs" />
+    <Compile Include="L1Repository\L1210HisMsgRepo.cs" />
+    <Compile Include="L1Repository\L1211HisMsgRepo.cs" />
+    <Compile Include="L1Repository\L1L2MsgDBModel.cs" />
+    <Compile Include="L1Repository\L2L1MsgDBModel.cs" />
+    <Compile Include="Level25Repository\L2L25_L2APStatus\L2L25_L2APStatus.cs" />
+    <Compile Include="Level25Repository\L2L25_L2APStatus\L2L25_L2APStatusRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_Alive\L2L25_Alive.cs" />
+    <Compile Include="Level25Repository\L2L25_Alive\L2L25_AliveRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_CoilMap\L2L25_CoilMap.cs" />
+    <Compile Include="Level25Repository\L2L25_CoilMap\L2L25_CoilMapRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_CoilPDI\L2L25_CoilPDI.cs" />
+    <Compile Include="Level25Repository\L2L25_CoilPDI\L2L25_CoilPDIRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_CoilPDO\L2L25_CoilPDO.cs" />
+    <Compile Include="Level25Repository\L2L25_CoilPDO\L2L25_CoilPDORepo.cs" />
+    <Compile Include="Level25Repository\L2L25_DownTime\L2L25_DownTime.cs" />
+    <Compile Include="Level25Repository\L2L25_DownTime\L2L25_DownTimeRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_CurrentPassNumberCT\L2L25_CurrentPassNumberCT.cs" />
+    <Compile Include="Level25Repository\L2L25_CurrentPassNumberCT\L2L25_CurrentPassNumberCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_CurrentSessionCT\L2L25_CurrentSessionCT.cs" />
+    <Compile Include="Level25Repository\L2L25_CurrentSessionCT\L2L25_CurrentSessionCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_GRDLineSpeedCT\L2L25_GRDLineSpeedCT.cs" />
+    <Compile Include="Level25Repository\L2L25_GRDLineSpeedCT\L2L25_GRDLineSpeedCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No1GRAB_beltKindCT\L2L25_No1GRAB_beltKindCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No1GRAB_beltKindCT\L2L25_No1GRAB_beltKindCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No1GRAB_beltRoughnessCT\L2L25_No1GRAB_beltRoughnessCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No1GRAB_beltRoughnessCT\L2L25_No1GRAB_beltRoughnessCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No1GRAB_beltMotorCurrentCT\L2L25_No1GRAB_beltMotorCurrentCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No1GRAB_beltMotorCurrentCT\L2L25_No1GRAB_beltMotorCurrentCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No1GRAB_beltSpeedCT\L2L25_No1GRAB_beltSpeedCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No1GRAB_beltSpeedCT\L2L25_No1GRAB_beltSpeedCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No1GRAB_beltRotateDireionCT\L2L25_No1GRAB_beltRotateDireionCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No1GRAB_beltRotateDireionCT\L2L25_No1GRAB_beltRotateDireionCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No2GRAB_beltKindCT\L2L25_No2GRAB_beltKindCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No2GRAB_beltKindCT\L2L25_No2GRAB_beltKindCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No2GRAB_beltRoughnessCT\L2L25_No2GRAB_beltRoughnessCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No2GRAB_beltRoughnessCT\L2L25_No2GRAB_beltRoughnessCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No2GRAB_beltCurrentCT\L2L25_No2GRAB_beltCurrentCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No2GRAB_beltCurrentCT\L2L25_No2GRAB_beltCurrentCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No2GRAB_beltSpeedCT\L2L25_No2GRAB_beltSpeedCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No2GRAB_beltSpeedCT\L2L25_No2GRAB_beltSpeedCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No2GRAB_beltRotateDireionCT\L2L25_No2GRAB_beltRotateDireionCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No2GRAB_beltRotateDireionCT\L2L25_No2GRAB_beltRotateDireionCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No3GRAB_beltKindCT\L2L25_No3GRAB_beltKindCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No3GRAB_beltKindCT\L2L25_No3GRAB_beltKindCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No3GRAB_beltRoughnessCT\L2L25_No3GRAB_beltRoughnessCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No3GRAB_beltRoughnessCT\L2L25_No3GRAB_beltRoughnessCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No3GRAB_beltCurrentCT\L2L25_No3GRAB_beltCurrentCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No3GRAB_beltCurrentCT\L2L25_No3GRAB_beltCurrentCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No3GRAB_beltRotateDireionCT\L2L25_No3GRAB_beltRotateDireionCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No3GRAB_beltRotateDireionCT\L2L25_No3GRAB_beltRotateDireionCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No4GRAB_beltKindCT\L2L25_No4GRAB_beltKindCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No4GRAB_beltKindCT\L2L25_No4GRAB_beltKindCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No4GRAB_beltRoughnessCT\L2L25_No4GRAB_beltRoughnessCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No4GRAB_beltRoughnessCT\L2L25_No4GRAB_beltRoughnessCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No4GRAB_beltCurrentCT\L2L25_No4GRAB_beltCurrentCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No4GRAB_beltCurrentCT\L2L25_No4GRAB_beltCurrentCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No4GRAB_beltRotateDireionCT\L2L25_No4GRAB_beltRotateDireionCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No4GRAB_beltRotateDireionCT\L2L25_No4GRAB_beltRotateDireionCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No5GRAB_beltKindCT\L2L25_No5GRAB_beltKindCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No5GRAB_beltKindCT\L2L25_No5GRAB_beltKindCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No5GRAB_beltRoughnessCT\L2L25_No5GRAB_beltRoughnessCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No5GRAB_beltRoughnessCT\L2L25_No5GRAB_beltRoughnessCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No5GRAB_beltCurrentCT\L2L25_No5GRAB_beltCurrentCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No5GRAB_beltCurrentCT\L2L25_No5GRAB_beltCurrentCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No5GRAB_beltRotateDireionCT\L2L25_No5GRAB_beltRotateDireionCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No5GRAB_beltRotateDireionCT\L2L25_No5GRAB_beltRotateDireionCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No6GRAB_beltKindCT\L2L25_No6GRAB_beltKindCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No6GRAB_beltKindCT\L2L25_No6GRAB_beltKindCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No6GRAB_beltRoughnessCT\L2L25_No6GRAB_beltRoughnessCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No6GRAB_beltRoughnessCT\L2L25_No6GRAB_beltRoughnessCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No6GRAB_beltCurrentCT\L2L25_No6GRAB_beltCurrentCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No6GRAB_beltCurrentCT\L2L25_No6GRAB_beltCurrentCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No6GRAB_beltRotateDireionCT\L2L25_No6GRAB_beltRotateDireionCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No6GRAB_beltRotateDireionCT\L2L25_No6GRAB_beltRotateDireionCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_CoilRejectResult\L2L25_CoilRejectResult.cs" />
+    <Compile Include="Level25Repository\L2L25_CoilRejectResult\L2L25_CoilRejectResultRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_ProcessCT\L2L25_ProcessCT.cs" />
+    <Compile Include="Level25Repository\L2L25_ProcessCT\L2L25_ProcessCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No2BrushRollCurrentCT\L2L25_No2BrushRollCurrentCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No2BrushRollCurrentCT\L2L25_No2BrushRollCurrentCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No1BrushRollCurrentCT\L2L25_No1BrushRollCurrentCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No1BrushRollCurrentCT\L2L25_No1BrushRollCurrentCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No2GRAbrasiveBeltSpeedCT\L2L25_No2GRAbrasiveBeltSpeedCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No2GRAbrasiveBeltSpeedCT\L2L25_No2GRAbrasiveBeltSpeedCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No1GRAbrasiveBeltSpeedCT\L2L25_No1GRAbrasiveBeltSpeedCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No1GRAbrasiveBeltSpeedCT\L2L25_No1GRAbrasiveBeltSpeedCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No6GRAbrasiveBeltMotorCurrentCT\L2L25_No6GRAbrasiveBeltMotorCurrentCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No6GRAbrasiveBeltMotorCurrentCT\L2L25_No6GRAbrasiveBeltMotorCurrentCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No5GRAbrasiveBeltMotorCurrentCT\L2L25_No5GRAbrasiveBeltMotorCurrentCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No5GRAbrasiveBeltMotorCurrentCT\L2L25_No5GRAbrasiveBeltMotorCurrentCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No4GRAbrasiveBeltMotorCurrentCT\L2L25_No4GRAbrasiveBeltMotorCurrentCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No4GRAbrasiveBeltMotorCurrentCT\L2L25_No4GRAbrasiveBeltMotorCurrentCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No3GRAbrasiveBeltMotorCurrentCT\L2L25_No3GRAbrasiveBeltMotorCurrentCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No3GRAbrasiveBeltMotorCurrentCT\L2L25_No3GRAbrasiveBeltMotorCurrentCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No2GRAbrasiveBeltMotorCurrentCT\L2L25_No2GRAbrasiveBeltMotorCurrentCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No2GRAbrasiveBeltMotorCurrentCT\L2L25_No2GRAbrasiveBeltMotorCurrentCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_No1GRAbrasiveBeltMotorCurrentCT\L2L25_No1GRAbrasiveBeltMotorCurrentCT.cs" />
+    <Compile Include="Level25Repository\L2L25_No1GRAbrasiveBeltMotorCurrentCT\L2L25_No1GRAbrasiveBeltMotorCurrentCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_LineRunDirectionCT\L2L25_LineRunDirectionCT.cs" />
+    <Compile Include="Level25Repository\L2L25_LineRunDirectionCT\L2L25_LineRunDirectionCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_LineTensionCT\L2L25_LineTensionCT.cs" />
+    <Compile Include="Level25Repository\L2L25_LineTensionCT\L2L25_LineTensionCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_LineSpeedCT\L2L25_LineSpeedCT.cs" />
+    <Compile Include="Level25Repository\L2L25_LineSpeedCT\L2L25_LineSpeedCTRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_ENGC\L2L25_ENGC.cs" />
+    <Compile Include="Level25Repository\L2L25_ENGC\L2L25_ENGCRepo.cs" />
+    <Compile Include="Level25Repository\L2L25_L1L2DisConnection\L2L25_L1L2DisConnection.cs" />
+    <Compile Include="Level25Repository\L2L25_L1L2DisConnection\L2L25_L1L2DisConnectionRepo.cs" />
+    <Compile Include="MMSWMSRepository\MMSRcvRepo.cs" />
+    <Compile Include="MMSWMSRepository\MMSSndRepo.cs" />
+    <Compile Include="MMSWMSRepository\MMS_WMS_MsgRecord.cs" />
+    <Compile Include="MMSWMSRepository\WMSRcvRepo.cs" />
+    <Compile Include="MMSWMSRepository\WMSSndRepo.cs" />
+    <Compile Include="Repository\AuthorityData\AuthorityDataEntity.cs" />
+    <Compile Include="Repository\AuthorityData_Frame\AuthorityDataFrameEntity.cs" />
+    <Compile Include="Repository\BeltMaterials\BeltMaterialEntity.cs" />
+    <Compile Include="Repository\BeltPatternsRecords\BeltPatternsRecordEntity.cs" />
+    <Compile Include="Repository\BeltPatternsRecords\BeltPatternsRecordRepo.cs" />
+    <Compile Include="Repository\BeltPatterns\BeltPatternRepo.cs" />
+    <Compile Include="Repository\BeltPatterns\BeltPatternsEntity.cs" />
+    <Compile Include="Repository\BeltSuppliers\BeltSuppliersEntity.cs" />
+    <Compile Include="Repository\Belt\BeltAccEntity.cs" />
+    <Compile Include="Repository\Belt\BeltAccRepo.cs" />
+    <Compile Include="Repository\CoilCutReocrd\CoilCutRecordEntity.cs" />
+    <Compile Include="Repository\CoilCutReocrd\CoilCutRecordRepo.cs" />
+    <Compile Include="Repository\PDOUploadedReply\PDOUploadedReplyRepo.cs" />
+    <Compile Include="Repository\PDOUploadedReply\PDOUploadedReplyEntity.cs" />
+    <Compile Include="Repository\CoilScheduleDelete\CoilScheduleDeleteEntity.cs" />
+    <Compile Include="Repository\CoilScheduleDelete\CoilScheduleDeleteRepo.cs" />
+    <Compile Include="Repository\ConnectionStatus\ConnectionStatusEntity.cs" />
+    <Compile Include="Repository\ConnectionStatus\ConnectionStatusRepo.cs" />
+    <Compile Include="Repository\DefectData\CoilDefectDataEntity.cs" />
+    <Compile Include="Repository\DefectData\DefectDataRepo.cs" />
+    <Compile Include="Repository\DelayLocation\DelayLocationEntity.cs" />
+    <Compile Include="Repository\DelayReasonCode\DelayReasonCodeEntity.cs" />
+    <Compile Include="Repository\EventLog\EventLogEntity.cs" />
+    <Compile Include="Repository\EventLog\EventLogRepo.cs" />
+    <Compile Include="Repository\FaultCode\FaultCodeEntity.cs" />
+    <Compile Include="Repository\GradeGroups\GradeGroupsEntity.cs" />
+    <Compile Include="Repository\GrindPlanHistory\GrindPlanHistoryEntity.cs" />
+    <Compile Include="Repository\GrindPlanHistory\GrindPlanHistoryRepo.cs" />
+    <Compile Include="Repository\GrindPlan\GrindPlanEntity.cs" />
+    <Compile Include="Repository\GrindRecords\GrindRecordsEntity.cs" />
+    <Compile Include="Repository\GrindRecords\GrindRecordsRepo.cs" />
+    <Compile Include="Repository\LangSwitch\LangSwitchEntity.cs" />
+    <Compile Include="Repository\LineFaultDelRecords\LineFaultDelRecordsEntity.cs" />
+    <Compile Include="Repository\LineFaultDelRecords\LineFaultDelRecordsRepo.cs" />
+    <Compile Include="Repository\LineFaultRecords\LineFaultRecordsEntity.cs" />
+    <Compile Include="Repository\LineFaultRecords\LineFaultRecordsRepo.cs" />
+    <Compile Include="Repository\LineStatus\LineStatusEntity.cs" />
+    <Compile Include="Repository\LineStatus\LineStatusRepo.cs" />
+    <Compile Include="Repository\LookupTblFlattener\LkUpTableFlattenerRepo.cs" />
+    <Compile Include="Repository\LookupTblFlattener\LkUpTableFlattenerEntity.cs" />
+    <Compile Include="Repository\LookupTblGrindLevel\LkUpTableGrindLevelEntity.cs" />
+    <Compile Include="Repository\LookupTblGrindLevel\LkUpTableGrindLevelRepo.cs" />
+    <Compile Include="Repository\LookupTblLineTension\LkUpTableLineTensionRepo.cs" />
+    <Compile Include="Repository\LookupTblPaper\LkUpTablePaperEntity.cs" />
+    <Compile Include="Repository\LookupTblPaper\LkUpTablePaperRepo.cs" />
+    <Compile Include="Repository\LookupTblSideTrimmer\LkUpTableSideTrimmerEntity.cs" />
+    <Compile Include="Repository\LookupTblSideTrimmer\LkUpTableSlideTrimmerRepo.cs" />
+    <Compile Include="Repository\LookupTblLineTension\LkUpTableLineTensionEntity.cs" />
+    <Compile Include="Repository\LookupTblSleeve\LkUpTableSleeveEntity.cs" />
+    <Compile Include="Repository\LookupTblSleeve\LkUpTableSleeveRepo.cs" />
+    <Compile Include="Repository\MaterialGrade\MaterialGradeEntity.cs" />
+    <Compile Include="Repository\MaterialGrade\MaterialGradeRepo.cs" />
+    <Compile Include="Repository\ProcessData\ProcessDataEntity.cs" />
+    <Compile Include="Repository\ProcessData\ProcessDataRepo.cs" />
+    <Compile Include="Repository\PDI\CoilPDIRepo.cs" />
+    <Compile Include="Repository\PDI\PDIEntity.cs" />
+    <Compile Include="Repository\PDO\CoilPDORepo.cs" />
+    <Compile Include="Repository\PDO\PDOEntity.cs" />
+    <Compile Include="Repository\ProductionSchedule\ProductionScheduleRepo.cs" />
+    <Compile Include="Repository\CoilRejectResult\CoilRejResultEntity.cs" />
+    <Compile Include="Repository\ProductionSchedule\CoilScheduleEntity.cs" />
+    <Compile Include="Repository\ReturnCoilTemp\ReturnCoilEntity.cs" />
+    <Compile Include="Repository\ReturnCoilTemp\ReturnCoilTempRepo.cs" />
+    <Compile Include="Repository\ScheduleDelete_CoilReject_Code\ScheduleDelete_CoilReject_CodeEntity.cs" />
+    <Compile Include="Repository\ScheduleDelete_CoilReject_Record\ScheduleDelete_CoilReject_RecordEntity.cs" />
+    <Compile Include="Repository\ScheduleDelete_CoilReject_Record_Temp\ScheduleDeleteRecordTempEntity.cs" />
+    <Compile Include="Repository\ScheduleDelete_CoilReject_Record_Temp\ScheduleDeleteRecordTempRepo.cs" />
+    <Compile Include="Repository\SplitCoils\SplitCoilsEntity.cs" />
+    <Compile Include="Repository\SplitCoils\SplitCoilsRepo.cs" />
+    <Compile Include="Repository\SteelNoToMaterialGrade\MaterialGradeEntity.cs" />
+    <Compile Include="Repository\StripBrakeSignal\StripBrakeSignalEntity.cs" />
+    <Compile Include="Repository\StripBrakeSignal\StripBrakeSignalRepo.cs" />
+    <Compile Include="Repository\SystemSetting\SystemSettingEntity.cs" />
+    <Compile Include="Repository\SystemSetting\SystemSettingRepo.cs" />
+    <Compile Include="DataAccess\DataAccess.cs" />
+    <Compile Include="DataAccess\DBHandler.cs" />
+    <Compile Include="Repository\CoilMap\CoilMapRepo.cs" />
+    <Compile Include="DB\DapperDBContext.cs" />
+    <Compile Include="Repository\CoilRejectResult\CoilRejectResultRepo.cs" />
+    <Compile Include="Base\IRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CoilMap\CoilMapEntity.cs" />
+    <Compile Include="Repository\UmountRecord\UmountRecordEntity.cs" />
+    <Compile Include="Repository\UmountRecord\UmountRecordRepo.cs" />
+    <Compile Include="Repository\Utility\UtilityEntity.cs" />
+    <Compile Include="Repository\Utility\UtilityRepo.cs" />
+    <Compile Include="Repository\WieldRecord\WeldRecordEntity.cs" />
+    <Compile Include="Repository\WieldRecord\WeldRecordsRepo.cs" />
+    <Compile Include="Repository\WorkSchedule\WorkScheduleEntity.cs" />
+    <Compile Include="Repository\WorkSchedule\WorkScheduleRepo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Help\Core.csproj">
+      <Project>{6b12a6fa-531f-4992-9319-718c4b048bad}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
